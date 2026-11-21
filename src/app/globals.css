@@ -1,0 +1,505 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #05060f;
+  --color-ink-2: #0c0e24;
+  --color-panel: #0e1124;
+  --color-line: rgba(255, 255, 255, 0.08);
+  --color-violet: var(--c1);
+  --color-cyan: var(--c2);
+  --color-pink: var(--c3);
+  /* ── Theme-driven palettes: every violet/cyan/pink utility follows the active theme ── */
+  --color-violet-50: color-mix(in oklab, var(--c1) 10%, white);
+  --color-violet-100: color-mix(in oklab, var(--c1) 22%, white);
+  --color-violet-200: color-mix(in oklab, var(--c1) 42%, white);
+  --color-violet-300: color-mix(in oklab, var(--c1) 64%, white);
+  --color-violet-400: color-mix(in oklab, var(--c1) 84%, white);
+  --color-violet-500: var(--c1);
+  --color-violet-600: color-mix(in oklab, var(--c1) 84%, black);
+  --color-violet-700: color-mix(in oklab, var(--c1) 68%, black);
+  --color-violet-800: color-mix(in oklab, var(--c1) 52%, black);
+  --color-violet-900: color-mix(in oklab, var(--c1) 38%, black);
+  --color-violet-950: color-mix(in oklab, var(--c1) 24%, black);
+  --color-purple-50: color-mix(in oklab, var(--c1) 10%, white);
+  --color-purple-100: color-mix(in oklab, var(--c1) 22%, white);
+  --color-purple-200: color-mix(in oklab, var(--c1) 42%, white);
+  --color-purple-300: color-mix(in oklab, var(--c1) 64%, white);
+  --color-purple-400: color-mix(in oklab, var(--c1) 84%, white);
+  --color-purple-500: var(--c1);
+  --color-purple-600: color-mix(in oklab, var(--c1) 84%, black);
+  --color-purple-700: color-mix(in oklab, var(--c1) 68%, black);
+  --color-purple-800: color-mix(in oklab, var(--c1) 52%, black);
+  --color-purple-900: color-mix(in oklab, var(--c1) 38%, black);
+  --color-purple-950: color-mix(in oklab, var(--c1) 24%, black);
+  --color-indigo-50: color-mix(in oklab, color-mix(in oklab, var(--c1) 60%, var(--c2)) 10%, white);
+  --color-indigo-100: color-mix(in oklab, color-mix(in oklab, var(--c1) 60%, var(--c2)) 22%, white);
+  --color-indigo-200: color-mix(in oklab, color-mix(in oklab, var(--c1) 60%, var(--c2)) 42%, white);
+  --color-indigo-300: color-mix(in oklab, color-mix(in oklab, var(--c1) 60%, var(--c2)) 64%, white);
+  --color-indigo-400: color-mix(in oklab, color-mix(in oklab, var(--c1) 60%, var(--c2)) 84%, white);
+  --color-indigo-500: color-mix(in oklab, var(--c1) 60%, var(--c2));
+  --color-indigo-600: color-mix(in oklab, color-mix(in oklab, var(--c1) 60%, var(--c2)) 84%, black);
+  --color-indigo-700: color-mix(in oklab, color-mix(in oklab, var(--c1) 60%, var(--c2)) 68%, black);
+  --color-indigo-800: color-mix(in oklab, color-mix(in oklab, var(--c1) 60%, var(--c2)) 52%, black);
+  --color-indigo-900: color-mix(in oklab, color-mix(in oklab, var(--c1) 60%, var(--c2)) 38%, black);
+  --color-indigo-950: color-mix(in oklab, color-mix(in oklab, var(--c1) 60%, var(--c2)) 24%, black);
+  --color-fuchsia-50: color-mix(in oklab, color-mix(in oklab, var(--c1) 55%, var(--c3)) 10%, white);
+  --color-fuchsia-100: color-mix(in oklab, color-mix(in oklab, var(--c1) 55%, var(--c3)) 22%, white);
+  --color-fuchsia-200: color-mix(in oklab, color-mix(in oklab, var(--c1) 55%, var(--c3)) 42%, white);
+  --color-fuchsia-300: color-mix(in oklab, color-mix(in oklab, var(--c1) 55%, var(--c3)) 64%, white);
+  --color-fuchsia-400: color-mix(in oklab, color-mix(in oklab, var(--c1) 55%, var(--c3)) 84%, white);
+  --color-fuchsia-500: color-mix(in oklab, var(--c1) 55%, var(--c3));
+  --color-fuchsia-600: color-mix(in oklab, color-mix(in oklab, var(--c1) 55%, var(--c3)) 84%, black);
+  --color-fuchsia-700: color-mix(in oklab, color-mix(in oklab, var(--c1) 55%, var(--c3)) 68%, black);
+  --color-fuchsia-800: color-mix(in oklab, color-mix(in oklab, var(--c1) 55%, var(--c3)) 52%, black);
+  --color-fuchsia-900: color-mix(in oklab, color-mix(in oklab, var(--c1) 55%, var(--c3)) 38%, black);
+  --color-fuchsia-950: color-mix(in oklab, color-mix(in oklab, var(--c1) 55%, var(--c3)) 24%, black);
+  --color-cyan-50: color-mix(in oklab, var(--c2) 10%, white);
+  --color-cyan-100: color-mix(in oklab, var(--c2) 22%, white);
+  --color-cyan-200: color-mix(in oklab, var(--c2) 42%, white);
+  --color-cyan-300: color-mix(in oklab, var(--c2) 64%, white);
+  --color-cyan-400: color-mix(in oklab, var(--c2) 84%, white);
+  --color-cyan-500: var(--c2);
+  --color-cyan-600: color-mix(in oklab, var(--c2) 84%, black);
+  --color-cyan-700: color-mix(in oklab, var(--c2) 68%, black);
+  --color-cyan-800: color-mix(in oklab, var(--c2) 52%, black);
+  --color-cyan-900: color-mix(in oklab, var(--c2) 38%, black);
+  --color-cyan-950: color-mix(in oklab, var(--c2) 24%, black);
+  --color-sky-50: color-mix(in oklab, var(--c2) 10%, white);
+  --color-sky-100: color-mix(in oklab, var(--c2) 22%, white);
+  --color-sky-200: color-mix(in oklab, var(--c2) 42%, white);
+  --color-sky-300: color-mix(in oklab, var(--c2) 64%, white);
+  --color-sky-400: color-mix(in oklab, var(--c2) 84%, white);
+  --color-sky-500: var(--c2);
+  --color-sky-600: color-mix(in oklab, var(--c2) 84%, black);
+  --color-sky-700: color-mix(in oklab, var(--c2) 68%, black);
+  --color-sky-800: color-mix(in oklab, var(--c2) 52%, black);
+  --color-sky-900: color-mix(in oklab, var(--c2) 38%, black);
+  --color-sky-950: color-mix(in oklab, var(--c2) 24%, black);
+  --color-pink-50: color-mix(in oklab, var(--c3) 10%, white);
+  --color-pink-100: color-mix(in oklab, var(--c3) 22%, white);
+  --color-pink-200: color-mix(in oklab, var(--c3) 42%, white);
+  --color-pink-300: color-mix(in oklab, var(--c3) 64%, white);
+  --color-pink-400: color-mix(in oklab, var(--c3) 84%, white);
+  --color-pink-500: var(--c3);
+  --color-pink-600: color-mix(in oklab, var(--c3) 84%, black);
+  --color-pink-700: color-mix(in oklab, var(--c3) 68%, black);
+  --color-pink-800: color-mix(in oklab, var(--c3) 52%, black);
+  --color-pink-900: color-mix(in oklab, var(--c3) 38%, black);
+  --color-pink-950: color-mix(in oklab, var(--c3) 24%, black);
+
+  --color-emerald: #34d399;
+  --color-amber: #fbbf24;
+  --color-muted: #a8b0d6;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-grotesk), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+
+  --animate-spin-slow: spin 18s linear infinite;
+  --animate-spin-slower: spin 32s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-shimmer: shimmer 2.4s linear infinite;
+  --animate-blink: blink 1s steps(1) infinite;
+  --animate-pulse-ring: pulse-ring 2.2s cubic-bezier(0.2, 0.6, 0.4, 1) infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) }
+    50% { transform: translateY(-14px) }
+  }
+  @keyframes marquee {
+    from { transform: translateX(0) }
+    to { transform: translateX(-50%) }
+  }
+  @keyframes shimmer {
+    from { background-position: 200% 0 }
+    to { background-position: -200% 0 }
+  }
+  @keyframes blink {
+    0%, 50% { opacity: 1 }
+    50.01%, 100% { opacity: 0 }
+  }
+  @keyframes pulse-ring {
+    0% { transform: scale(0.9); opacity: 0.7 }
+    100% { transform: scale(1.9); opacity: 0 }
+  }
+}
+
+:root {
+  color-scheme: dark;
+  /* default theme: Sunset (keep in sync with DEFAULT_THEME in src/data/themes.ts) */
+  --c1: #f97316;
+  --c2: #facc15;
+  --c3: #f43f5e;
+  --bg-tint: #2e130b;
+}
+
+html {
+  background: var(--color-ink);
+  scroll-behavior: auto;
+  overflow-x: clip;
+}
+
+body {
+  background: transparent;
+  color: var(--text-base);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--c1) 45%, transparent);
+  color: #fff;
+}
+
+/* Lenis smooth scroll */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--color-ink); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--c1), var(--c2));
+  border-radius: 999px;
+  border: 2px solid var(--color-ink);
+}
+
+@utility text-gradient {
+  background: linear-gradient(100deg, color-mix(in oklab, var(--c1) 55%, white) 0%, var(--c2) 45%, var(--c3) 90%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility text-gradient-animated {
+  background: linear-gradient(100deg, color-mix(in oklab, var(--c1) 75%, white), var(--c2), var(--c3), color-mix(in oklab, var(--c1) 75%, white));
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 6s linear infinite;
+}
+
+@utility glass {
+  background: linear-gradient(140deg, color-mix(in oklab, var(--color-white) 7%, transparent), color-mix(in oklab, var(--color-white) 2.5%, transparent));
+  border: 1px solid color-mix(in oklab, var(--color-white) 10%, transparent);
+}
+
+@utility gradient-border {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    background: linear-gradient(140deg, color-mix(in oklab, var(--c1) 80%, transparent), color-mix(in oklab, var(--c2) 40%, transparent), color-mix(in oklab, var(--c3) 70%, transparent));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
+
+@utility bg-grid {
+  background-image:
+    linear-gradient(color-mix(in oklab, var(--color-white) 4%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in oklab, var(--color-white) 4%, transparent) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+@utility section-pad {
+  padding-top: clamp(5rem, 10vw, 8.5rem);
+  padding-bottom: clamp(5rem, 10vw, 8.5rem);
+}
+
+@utility container-x {
+  width: 100%;
+  /* full-width layout: grows with the screen, capped only on ultra-wide monitors */
+  max-width: 1760px;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4.5vw, 5rem);
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+}
+
+/* Noise overlay */
+.noise::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+
+/* 3D helpers */
+.preserve-3d { transform-style: preserve-3d; }
+.perspective { perspective: 1200px; }
+.backface-hidden { backface-visibility: hidden; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ── Extra motion ── */
+@keyframes aurora {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(8%, -6%) scale(1.15); }
+  66% { transform: translate(-6%, 8%) scale(0.9); }
+}
+@keyframes wave {
+  0%, 60%, 100% { transform: rotate(0deg); }
+  10%, 30% { transform: rotate(16deg); }
+  20%, 40% { transform: rotate(-10deg); }
+}
+@keyframes bubble {
+  from { transform: scale(0.4) translateY(10px); opacity: 0; }
+  to { transform: scale(1) translateY(0); opacity: 1; }
+}
+@keyframes pop {
+  from { transform: scale(0.6); opacity: 0; filter: blur(6px); }
+  to { transform: scale(1); opacity: 1; filter: blur(0); }
+}
+@keyframes grow {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+
+/* ── Mouse-follow spotlight on cards (.spotlight) ── */
+.spotlight { position: relative; isolation: isolate; }
+.spotlight::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), color-mix(in oklab, var(--c1) 16%, transparent), transparent 45%);
+  z-index: -1;
+}
+.spotlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+  background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), color-mix(in oklab, var(--c2) 85%, transparent), color-mix(in oklab, var(--c1) 50%, transparent) 40%, transparent 70%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+.spotlight:hover::after, .spotlight:hover::before { opacity: 1; }
+@keyframes kenburns {
+  from { transform: scale(1.02) translate(0, 0); }
+  to { transform: scale(1.14) translate(-2%, -1.5%); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.9; }
+}
+@keyframes ring-spin { to { transform: rotate(360deg); } }
+@keyframes typeline {
+  0% { clip-path: inset(0 100% 0 0); }
+  35%, 85% { clip-path: inset(0 0 0 0); }
+  100% { clip-path: inset(0 0 0 0); opacity: 0; }
+}
+@keyframes dash { to { stroke-dashoffset: -10; } }
+@keyframes eq {
+  0%, 100% { transform: scaleY(0.35); }
+  50% { transform: scaleY(1); }
+}
+@keyframes confetti {
+  from { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+  to { transform: translateY(460px) rotate(600deg); opacity: 0.6; }
+}
+
+/* ───────────────────────── Light mode ─────────────────────────
+   "white" utilities become ink, the ink background becomes paper, and light accent shades are
+   deepened for contrast. `.dark-island` subtrees (code panels, mock browser, lightbox…) stay dark. */
+:root {
+  --aurora-top: var(--bg-tint);
+  --aurora-mid: color-mix(in oklab, var(--bg-tint) 35%, #05060f);
+  --text-base: #e7e9f7;
+}
+html.light {
+  color-scheme: light;
+  --color-white: #0e1129;
+  --color-ink: #f5f6fb;
+  --color-ink-2: #ffffff;
+  --color-panel: #ffffff;
+  --color-muted: #4a5272;
+  --aurora-top: color-mix(in oklab, var(--c1) 16%, #ffffff);
+  --aurora-mid: #f5f6fb;
+  --text-base: #1b1f3b;
+  --color-violet-50: color-mix(in oklab, var(--c1) 10%, white);
+  --color-violet-100: color-mix(in oklab, var(--c1) 22%, white);
+  --color-violet-200: color-mix(in oklab, var(--c1) 62%, black);
+  --color-violet-300: color-mix(in oklab, var(--c1) 70%, black);
+  --color-violet-400: color-mix(in oklab, var(--c1) 82%, black);
+  --color-purple-50: color-mix(in oklab, var(--c1) 10%, white);
+  --color-purple-100: color-mix(in oklab, var(--c1) 22%, white);
+  --color-purple-200: color-mix(in oklab, var(--c1) 62%, black);
+  --color-purple-300: color-mix(in oklab, var(--c1) 70%, black);
+  --color-purple-400: color-mix(in oklab, var(--c1) 82%, black);
+  --color-indigo-50: color-mix(in oklab, color-mix(in oklab, var(--c1) 60%, var(--c2)) 10%, white);
+  --color-indigo-100: color-mix(in oklab, color-mix(in oklab, var(--c1) 60%, var(--c2)) 22%, white);
+  --color-indigo-200: color-mix(in oklab, color-mix(in oklab, var(--c1) 60%, var(--c2)) 62%, black);
+  --color-indigo-300: color-mix(in oklab, color-mix(in oklab, var(--c1) 60%, var(--c2)) 70%, black);
+  --color-indigo-400: color-mix(in oklab, color-mix(in oklab, var(--c1) 60%, var(--c2)) 82%, black);
+  --color-fuchsia-50: color-mix(in oklab, color-mix(in oklab, var(--c1) 55%, var(--c3)) 10%, white);
+  --color-fuchsia-100: color-mix(in oklab, color-mix(in oklab, var(--c1) 55%, var(--c3)) 22%, white);
+  --color-fuchsia-200: color-mix(in oklab, color-mix(in oklab, var(--c1) 55%, var(--c3)) 62%, black);
+  --color-fuchsia-300: color-mix(in oklab, color-mix(in oklab, var(--c1) 55%, var(--c3)) 70%, black);
+  --color-fuchsia-400: color-mix(in oklab, color-mix(in oklab, var(--c1) 55%, var(--c3)) 82%, black);
+  --color-cyan-50: color-mix(in oklab, var(--c2) 10%, white);
+  --color-cyan-100: color-mix(in oklab, var(--c2) 22%, white);
+  --color-cyan-200: color-mix(in oklab, var(--c2) 62%, black);
+  --color-cyan-300: color-mix(in oklab, var(--c2) 70%, black);
+  --color-cyan-400: color-mix(in oklab, var(--c2) 82%, black);
+  --color-sky-50: color-mix(in oklab, var(--c2) 10%, white);
+  --color-sky-100: color-mix(in oklab, var(--c2) 22%, white);
+  --color-sky-200: color-mix(in oklab, var(--c2) 62%, black);
+  --color-sky-300: color-mix(in oklab, var(--c2) 70%, black);
+  --color-sky-400: color-mix(in oklab, var(--c2) 82%, black);
+  --color-pink-50: color-mix(in oklab, var(--c3) 10%, white);
+  --color-pink-100: color-mix(in oklab, var(--c3) 22%, white);
+  --color-pink-200: color-mix(in oklab, var(--c3) 62%, black);
+  --color-pink-300: color-mix(in oklab, var(--c3) 70%, black);
+  --color-pink-400: color-mix(in oklab, var(--c3) 82%, black);
+  --color-emerald-200: #047857;
+  --color-emerald-300: #059669;
+  --color-emerald-400: #059669;
+  --color-amber-200: #92400e;
+  --color-amber-300: #b45309;
+  --color-red-300: #b91c1c;
+}
+html.light .dark-island {
+  color-scheme: dark;
+  --color-white: #ffffff;
+  --color-ink: #05060f;
+  --color-ink-2: #0c0e24;
+  --color-muted: #a8b0d6;
+  --text-base: #e7e9f7;
+  --color-violet-50: color-mix(in oklab, var(--c1) 10%, white);
+  --color-violet-100: color-mix(in oklab, var(--c1) 22%, white);
+  --color-violet-200: color-mix(in oklab, var(--c1) 42%, white);
+  --color-violet-300: color-mix(in oklab, var(--c1) 64%, white);
+  --color-violet-400: color-mix(in oklab, var(--c1) 84%, white);
+  --color-purple-50: color-mix(in oklab, var(--c1) 10%, white);
+  --color-purple-100: color-mix(in oklab, var(--c1) 22%, white);
+  --color-purple-200: color-mix(in oklab, var(--c1) 42%, white);
+  --color-purple-300: color-mix(in oklab, var(--c1) 64%, white);
+  --color-purple-400: color-mix(in oklab, var(--c1) 84%, white);
+  --color-indigo-50: color-mix(in oklab, color-mix(in oklab, var(--c1) 60%, var(--c2)) 10%, white);
+  --color-indigo-100: color-mix(in oklab, color-mix(in oklab, var(--c1) 60%, var(--c2)) 22%, white);
+  --color-indigo-200: color-mix(in oklab, color-mix(in oklab, var(--c1) 60%, var(--c2)) 42%, white);
+  --color-indigo-300: color-mix(in oklab, color-mix(in oklab, var(--c1) 60%, var(--c2)) 64%, white);
+  --color-indigo-400: color-mix(in oklab, color-mix(in oklab, var(--c1) 60%, var(--c2)) 84%, white);
+  --color-fuchsia-50: color-mix(in oklab, color-mix(in oklab, var(--c1) 55%, var(--c3)) 10%, white);
+  --color-fuchsia-100: color-mix(in oklab, color-mix(in oklab, var(--c1) 55%, var(--c3)) 22%, white);
+  --color-fuchsia-200: color-mix(in oklab, color-mix(in oklab, var(--c1) 55%, var(--c3)) 42%, white);
+  --color-fuchsia-300: color-mix(in oklab, color-mix(in oklab, var(--c1) 55%, var(--c3)) 64%, white);
+  --color-fuchsia-400: color-mix(in oklab, color-mix(in oklab, var(--c1) 55%, var(--c3)) 84%, white);
+  --color-cyan-50: color-mix(in oklab, var(--c2) 10%, white);
+  --color-cyan-100: color-mix(in oklab, var(--c2) 22%, white);
+  --color-cyan-200: color-mix(in oklab, var(--c2) 42%, white);
+  --color-cyan-300: color-mix(in oklab, var(--c2) 64%, white);
+  --color-cyan-400: color-mix(in oklab, var(--c2) 84%, white);
+  --color-sky-50: color-mix(in oklab, var(--c2) 10%, white);
+  --color-sky-100: color-mix(in oklab, var(--c2) 22%, white);
+  --color-sky-200: color-mix(in oklab, var(--c2) 42%, white);
+  --color-sky-300: color-mix(in oklab, var(--c2) 64%, white);
+  --color-sky-400: color-mix(in oklab, var(--c2) 84%, white);
+  --color-pink-50: color-mix(in oklab, var(--c3) 10%, white);
+  --color-pink-100: color-mix(in oklab, var(--c3) 22%, white);
+  --color-pink-200: color-mix(in oklab, var(--c3) 42%, white);
+  --color-pink-300: color-mix(in oklab, var(--c3) 64%, white);
+  --color-pink-400: color-mix(in oklab, var(--c3) 84%, white);
+  --color-emerald-200: #a7f3d0;
+  --color-emerald-300: #6ee7b7;
+  --color-emerald-400: #34d399;
+  --color-amber-200: #fde68a;
+  --color-amber-300: #fcd34d;
+  --color-red-300: #fca5a5;
+}
+/* solid gradient buttons keep white labels */
+html.light :is(a, button)[class*="bg-gradient-to"],
+html.light :is(span, a, button)[class*="bg-violet-500 "],
+html.light [class*="bg-emerald-500"], html.light [class*="bg-red-500"] {
+  --color-white: #ffffff;
+}
+html.light .text-gradient {
+  background-image: linear-gradient(100deg, color-mix(in oklab, var(--c1) 85%, black), color-mix(in oklab, var(--c2) 70%, black) 50%, color-mix(in oklab, var(--c3) 80%, black));
+}
+html.light .text-gradient-animated {
+  background-image: linear-gradient(100deg, var(--c1), color-mix(in oklab, var(--c2) 72%, black), color-mix(in oklab, var(--c3) 88%, black), var(--c1));
+}
+html.light .aurora-stars, html.light .aurora-vignette { display: none; }
+html.light .noise::after { opacity: 0.02; }
+html.light ::-webkit-scrollbar-track { background: #eceef6; }
+html.light ::-webkit-scrollbar-thumb { border-color: #eceef6; }
+.aurora-base {
+  background: radial-gradient(120% 80% at 50% -10%, var(--aurora-top) 0%, var(--aurora-mid) 45%, var(--color-ink) 100%);
+  transition: background 0.6s;
+}
+
+/* ───────────── Typography ───────────── */
+body {
+  font-size: 16px;
+  line-height: 1.65;
+  letter-spacing: 0.003em;
+  font-feature-settings: "ss01", "cv11";
+  text-rendering: optimizeLegibility;
+}
+h1, h2, h3, h4, .font-display {
+  letter-spacing: -0.025em;
+  font-feature-settings: "ss01";
+}
+h1 { line-height: 1.02; }
+h2 { line-height: 1.08; text-wrap: balance; }
+h3 { line-height: 1.25; }
+p { text-wrap: pretty; }
+
+
+/* ───────── GPU-friendly looping micro-animations (replace JS-driven framer loops) ───────── */
+@keyframes dash40 { to { stroke-dashoffset: -40; } }
+@keyframes pulse-scale { 0%, 100% { transform: scale(0.85); } 50% { transform: scale(1.35); } }
+@keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+@keyframes travel { from { left: 0%; } to { left: 100%; } }
+.anim-dash40 { animation: dash40 1.5s linear infinite; }
+.anim-pulse { animation: pulse-scale 2.2s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.anim-bob { display: inline-block; animation: bob 0.8s ease-in-out infinite; }
+.anim-travel { animation: travel 1.2s ease-in-out infinite; }
+
+/* Never paint the intro overlay on phones/tablets or for returning visitors (protects LCP). */
+html.no-intro .lk-preloader { display: none !important; }
+@media (pointer: coarse), (max-width: 1023px) { .lk-preloader { display: none !important; } }
+
+/* Decorative scrolling words (VelocityText): text comes from data-text via ::before */
+.velocity-word::before { content: attr(data-text); }
+.velocity-fill::before {
+  background: linear-gradient(100deg, color-mix(in oklab, var(--c1) 55%, white) 0%, var(--c2) 45%, var(--c3) 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}

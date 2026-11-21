@@ -1,0 +1,24 @@
+# Lokendra Kumar Prajapati
+
+> Senior Software Developer and Frontend Architect at Zindagi Technologies (Delhi, India) with 6+ years of experience in React.js, Next.js, TypeScript, design systems and AI interfaces. Also known as Lokendra, Lokendra Kumar and Lokendra Prajapati. Official website: https://lokendra.work
+
+## Profile
+- Name: Lokendra Kumar Prajapati (Lokendra Kumar)
+- Role: Senior Software Developer · Senior Frontend Engineer · Frontend Architect · AI Frontend Engineer
+- Company: Zindagi Technologies Pvt. Ltd. (Feb 2024 – present); previously Tiwari Tech Industries (Jan 2021 – Jan 2024)
+- Location: Delhi NCR and Jalaun, Uttar Pradesh, India
+- Awards: Standout Performer (2025), Pat on the Back (Nov 2024), Zindagi Technologies
+- Product: GoChatPilot (https://chat-pilot.in), an AI-powered WhatsApp toolkit PWA
+- Contact: lokendraitaura@gmail.com · WhatsApp +91 96968 52187
+
+## Core skills
+React.js 18/19, Next.js (App Router, SSR, ISR, Server Actions), TypeScript, JavaScript, Redux Toolkit, Zustand, TanStack Query, Material UI, Tailwind CSS, Shadcn UI, Radix UI, Storybook design systems, AG Grid, React Flow, Core Web Vitals and performance, WCAG/ARIA accessibility, PWAs, Jest, React Testing Library, Playwright, Node.js, Docker, AWS basics.
+
+## AI frontend engineering
+LLM APIs (OpenAI, Gemini, Groq), streaming chat UIs, prompt engineering, structured outputs, tool calling, RAG, embeddings, LangChain.js, LangGraph.js, AI agents, MCP, Vercel AI SDK.
+
+## Links
+- Website: https://lokendra.work
+- Resume: https://lokendra.work/Lokendra_Kumar_Resume.pdf
+- LinkedIn: https://www.linkedin.com/in/lokendra-kumar-prajapati-9942072b8
+- GitHub: https://github.com/lokendraitaura

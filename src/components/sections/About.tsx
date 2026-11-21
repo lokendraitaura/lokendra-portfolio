@@ -191,10 +191,31 @@ export default function About({ sceneImages = {}, hasAvatar = false }: { sceneIm
 
         <div className="grid items-start gap-14 lg:grid-cols-2">
           <div className="space-y-6 text-base leading-relaxed text-muted sm:text-lg">
+            {/* Real portrait: plain <img> with a descriptive file name + alt so Google Images can index it */}
+            <figure className="flex items-center gap-5 rounded-3xl border border-white/10 bg-white/[0.03] p-4 sm:p-5">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/lokendra-kumar-prajapati.webp"
+                srcSet="/images/lokendra-kumar-prajapati.webp 1089w"
+                sizes="(max-width: 640px) 112px, 144px"
+                width={1089}
+                height={1444}
+                loading="lazy"
+                decoding="async"
+                alt="Lokendra Kumar Prajapati, Senior Software Developer and Frontend Architect at Zindagi Technologies"
+                className="h-36 w-28 shrink-0 rounded-2xl object-cover object-top ring-1 ring-white/15 sm:h-44 sm:w-36"
+              />
+              <figcaption className="text-sm leading-relaxed">
+                <span className="block font-display text-lg font-semibold text-white sm:text-xl">Lokendra Kumar Prajapati</span>
+                <span className="block text-cyan-300">Senior Software Developer · Frontend Architect</span>
+                <span className="mt-1 block">Zindagi Technologies · Delhi NCR, India</span>
+                <a href={`mailto:${profile.email}`} className="mt-2 inline-block text-white/80 underline-offset-4 hover:underline">{profile.email}</a>
+              </figcaption>
+            </figure>
             <Reveal>
               <p>
                 Hi, I&apos;m <strong className="text-white">{profile.name}</strong> (Lokendra Kumar Prajapati), a{" "}
-                <strong className="text-white">Senior Frontend Engineer and Frontend Architect</strong> from Uttar Pradesh, India, currently leading frontend at{" "}
+                <strong className="text-white">Senior Software Developer, Senior Frontend Engineer and Frontend Architect</strong> from Uttar Pradesh, India, currently leading frontend at{" "}
                 <a href={profile.socials.company} target="_blank" rel="noopener noreferrer" className="text-cyan-300 underline-offset-4 hover:underline">
                   Zindagi Technologies
                 </a>{" "}

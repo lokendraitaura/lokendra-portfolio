@@ -92,6 +92,29 @@ export const FAQ: { q: string; a: string }[] = [
   },
 ];
 
+/** Real photos of Lokendra (descriptive file names + ImageObject metadata help Google Images). */
+export const PHOTOS = [
+  { path: "/images/lokendra-kumar-prajapati.jpg", width: 1089, height: 1444, caption: "Lokendra Kumar Prajapati – Senior Software Developer and Frontend Architect" },
+  { path: "/images/lokendra-kumar-prajapati-square.jpg", width: 1200, height: 1200, caption: "Lokendra Kumar Prajapati, Senior Software Developer at Zindagi Technologies" },
+];
+
+const photoObject = (p: (typeof PHOTOS)[number], id?: string) => ({
+  "@type": "ImageObject",
+  ...(id ? { "@id": id } : {}),
+  url: `${SITE_URL}${p.path}`,
+  contentUrl: `${SITE_URL}${p.path}`,
+  width: p.width,
+  height: p.height,
+  caption: p.caption,
+  name: p.caption,
+  representativeOfPage: true,
+  creator: { "@type": "Person", name: "Lokendra Kumar Prajapati" },
+  creditText: "Lokendra Kumar Prajapati",
+  copyrightNotice: "© Lokendra Kumar Prajapati",
+  license: `${SITE_URL}/about#photo-license`,
+  acquireLicensePage: `${SITE_URL}/about#photo-license`,
+});
+
 const PERSON_ID = `${SITE_URL}/#person`;
 const ORG_ID = `${SITE_URL}/#zindagi-technologies`;
 const SITE_ID = `${SITE_URL}/#website`;
@@ -113,8 +136,13 @@ export const jsonLd = {
       description: SEO_DESCRIPTION,
       url: SITE_URL,
       mainEntityOfPage: { "@id": PAGE_ID },
-      image: { "@type": "ImageObject", url: `${SITE_URL}/images/lokendra.jpg`, width: 579, height: 768, caption: "Lokendra Kumar Prajapati" },
+      image: [photoObject(PHOTOS[0], `${SITE_URL}/#photo`), photoObject(PHOTOS[1])],
       email: `mailto:${profile.email}`,
+      contactPoint: [
+        { "@type": "ContactPoint", contactType: "professional enquiries", email: profile.email, telephone: profile.phone.replace(/\s/g, ""), areaServed: "Worldwide", availableLanguage: ["English", "Hindi"] },
+        { "@type": "ContactPoint", contactType: "WhatsApp", telephone: profile.phone.replace(/\s/g, ""), url: `https://wa.me/${profile.phoneRaw}` },
+      ],
+      subjectOf: { "@id": `${SITE_URL}/about#webpage` },
       telephone: profile.phone.replace(/\s/g, ""),
       gender: "Male",
       nationality: { "@type": "Country", name: "India" },
@@ -165,7 +193,7 @@ export const jsonLd = {
       mainEntity: { "@id": PERSON_ID },
       about: { "@id": PERSON_ID },
       isPartOf: { "@id": SITE_ID },
-      primaryImageOfPage: { "@type": "ImageObject", url: `${SITE_URL}/images/lokendra.jpg` },
+      primaryImageOfPage: { "@id": `${SITE_URL}/#photo` },
       breadcrumb: {
         "@type": "BreadcrumbList",
         itemListElement: [{ "@type": "ListItem", position: 1, name: "Lokendra Kumar Prajapati", item: SITE_URL }],

@@ -74,7 +74,7 @@ export default function Footer() {
         </p>
 
         <div className="flex flex-col items-center justify-between gap-3 border-t border-white/5 py-8 text-sm text-muted sm:flex-row">
-          <p>© Lokendra Kumar Prajapati · Senior Software Developer at Zindagi Technologies · lokendra.work</p>
+          <p>© Lokendra Kumar Prajapati · Senior Software Developer at Zindagi Technologies · <a href="/about" className="hover:text-white hover:underline">About Lokendra</a></p>
           <p className="font-mono text-xs">Designed & built with Next.js · TypeScript · Three.js · Framer Motion</p>
         </div>
       </div>

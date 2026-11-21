@@ -15,7 +15,8 @@ export default function Faq() {
             About Lokendra Kumar Prajapati
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted">
-            Quick answers about my work as a Senior Software Developer and Frontend Architect, my skills and how to hire me.
+            Quick answers about my work as a Senior Software Developer and Frontend Architect, my skills and how to hire me.{" "}
+            <a href="/about" className="text-cyan-300 underline underline-offset-4">Read my full profile →</a>
           </p>
           <div className="mt-10 space-y-3">
             {FAQ.map((f, i) => (

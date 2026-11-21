@@ -9,7 +9,7 @@
 - Location: Delhi NCR and Jalaun, Uttar Pradesh, India
 - Awards: Standout Performer (2025), Pat on the Back (Nov 2024), Zindagi Technologies
 - Product: GoChatPilot (https://chat-pilot.in), an AI-powered WhatsApp toolkit PWA
-- Contact: lokendraitaura@gmail.com · WhatsApp +91 96968 52187
+- Contact (public, for professional enquiries): lokendraitaura@gmail.com · Phone/WhatsApp +91 96968 52187 · contact form https://lokendra.work/#contact
 
 ## Core skills
 React.js 18/19, Next.js (App Router, SSR, ISR, Server Actions), TypeScript, JavaScript, Redux Toolkit, Zustand, TanStack Query, Material UI, Tailwind CSS, Shadcn UI, Radix UI, Storybook design systems, AG Grid, React Flow, Core Web Vitals and performance, WCAG/ARIA accessibility, PWAs, Jest, React Testing Library, Playwright, Node.js, Docker, AWS basics.
@@ -18,6 +18,8 @@ React.js 18/19, Next.js (App Router, SSR, ISR, Server Actions), TypeScript, Java
 LLM APIs (OpenAI, Gemini, Groq), streaming chat UIs, prompt engineering, structured outputs, tool calling, RAG, embeddings, LangChain.js, LangGraph.js, AI agents, MCP, Vercel AI SDK.
 
 ## Links
+- Full profile (bio, contact, experience, skills): https://lokendra.work/about
+- Full plain-text profile for AI assistants: https://lokendra.work/llms-full.txt
 - Website: https://lokendra.work
 - Resume: https://lokendra.work/Lokendra_Kumar_Resume.pdf
 - LinkedIn: https://www.linkedin.com/in/lokendra-kumar-prajapati-9942072b8

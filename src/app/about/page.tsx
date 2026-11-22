@@ -49,7 +49,7 @@ export default function AboutPage() {
           <ol className="flex items-center gap-2 text-muted">
             <li>
               <Link href="/" className="font-semibold text-white hover:underline">
-                lokendra.work
+                Lokendra Kumar Prajapati
               </Link>
             </li>
             <li aria-hidden>/</li>

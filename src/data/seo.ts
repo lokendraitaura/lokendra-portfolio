@@ -174,9 +174,10 @@ export const jsonLd = {
     {
       "@type": "WebSite",
       "@id": SITE_ID,
-      url: SITE_URL,
+      url: `${SITE_URL}/`,
       name: SITE_NAME,
-      alternateName: ["Lokendra", "Lokendra Kumar", "lokendra.work"],
+      // Google picks these in order if it won't use `name`; the lowercase domain is the last-resort backup.
+      alternateName: ["Lokendra Kumar", "Lokendra Prajapati", "lokendra.work"],
       description: SEO_DESCRIPTION,
       inLanguage: "en-IN",
       publisher: { "@id": PERSON_ID },

@@ -95,6 +95,9 @@ export function HeroScene({ compact = false, hasAvatar = false }: { compact?: bo
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const onReady = useCallback(() => setReady(true), []);
   const onUnavailable = useCallback(() => setUnavailable(true), []);
+  // Touch screens, inline: sideways swipe orbits, vertical swipe scrolls the page; pinch/pan live in fullscreen.
+  const coarse = useMediaQuery("(pointer: coarse)");
+  const inlineTouch = coarse && !expanded;
   const camera = useMemo(() => ({
     position: (hasAvatar ? [POSITION[0], POSITION[1], POSITION[2]] : [0, 0.85, 6.1]) as [number, number, number],
     target: hasAvatar ? TARGET : [0, -0.2, 0] as [number, number, number],
@@ -168,11 +171,11 @@ export function HeroScene({ compact = false, hasAvatar = false }: { compact?: bo
           </> : <Workspace />}
           <Ready onReady={onReady} />
         </Suspense>
-        <OrbitControls ref={controls} makeDefault target={camera.target} enableDamping dampingFactor={0.08} rotateSpeed={0.65} zoomSpeed={0.75} panSpeed={0.6} minDistance={1.2} maxDistance={9} minPolarAngle={0.08} maxPolarAngle={Math.PI - 0.08} enablePan enableZoom />
+        <OrbitControls ref={controls} makeDefault target={camera.target} enableDamping dampingFactor={0.08} rotateSpeed={0.65} zoomSpeed={0.75} panSpeed={0.6} minDistance={1.2} maxDistance={9} minPolarAngle={0.08} maxPolarAngle={Math.PI - 0.08} enablePan={!inlineTouch} enableZoom={!inlineTouch} />
       </SceneCanvas>
     </div>
     <div className="world-bottom">
-      <div className="world-hint" id="world-instructions"><Move size={18} /><span><strong>Your perspective. Your control.</strong><span>{compact ? "Drag to orbit · Pinch to zoom · Two fingers to pan" : "Drag to orbit · Scroll to zoom · Right-drag to pan"}</span><span className="sr-only">Keyboard: arrow keys rotate, plus and minus zoom, Home resets.</span></span></div>
+      <div className="world-hint" id="world-instructions"><Move size={18} /><span><strong>Your perspective. Your control.</strong><span>{inlineTouch ? "Swipe sideways to orbit · Tap ⤢ for full control" : compact ? "Drag to orbit · Pinch to zoom · Two fingers to pan" : "Drag to orbit · Scroll to zoom · Right-drag to pan"}</span><span className="sr-only">Keyboard: arrow keys rotate, plus and minus zoom, Home resets.</span></span></div>
       <div className="world-actions">
         <button onClick={greet} disabled={!ready} aria-label="Say hello" title="Say hello"><Hand size={18} /></button>
         <button onClick={() => setPauseOverride(!paused)} aria-label={paused ? "Play animation" : "Pause animation"} title={paused ? "Play animation" : "Pause animation"}>{paused ? <Play size={17} /> : <Pause size={17} />}</button>

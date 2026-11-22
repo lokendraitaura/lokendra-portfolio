@@ -18,6 +18,17 @@ const nextConfig: NextConfig = {
       },
     },
   },
+  // One canonical host for Google: www.lokendra.work → lokendra.work, permanently (308).
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.lokendra.work" }],
+        destination: "https://lokendra.work/:path*",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

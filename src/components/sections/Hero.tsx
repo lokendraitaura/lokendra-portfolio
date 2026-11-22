@@ -21,11 +21,13 @@ const HeroScene = dynamic(() => import("@/components/three/HeroScenes").then(m =
 export default function Hero({ hasAvatar = false }: { hasAvatar?: boolean }) {
   const compact = useMediaQuery("(max-width: 767px)");
   const lite = useLiteDevice();
-  const idle = useIdleReady(lite ? 700 : 0);
+  // Phones: 3D starts on the first touch/scroll, or by itself a few seconds after load (keeps first paint fast).
+  const idle = useIdleReady(lite ? 4500 : 0, { onInteraction: lite });
   const constrained = useConstrainedNetwork();
   const [forced, setForced] = useState(false);
-  // Desktop: live 3D once idle. Phones/tablets & slow networks: identical still + tap to go 3D.
-  const show3D = forced || (idle && !constrained && !lite);
+  // Live 3D on every device once the page is idle (the identical still shows until then).
+  // Only Data Saver / 2G connections wait for a tap, to save their data.
+  const show3D = forced || (idle && !constrained);
   const reduced = useReducedMotion();
   const entrance = { initial: { opacity: 0, y: reduced ? 0 : 24 }, animate: { opacity: 1, y: 0 } };
 
@@ -52,7 +54,7 @@ export default function Hero({ hasAvatar = false }: { hasAvatar?: boolean }) {
           </div>
           <div className="universe-scene">
             {show3D ? <HeroScene compact={compact} hasAvatar={hasAvatar} /> : <HeroPoster />}
-            {!show3D && (lite || constrained) && (
+            {!show3D && constrained && (
               <button type="button" onClick={() => setForced(true)} className="hero-load-3d">
                 <span aria-hidden>✦</span> Tap to explore in 3D
               </button>

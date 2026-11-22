@@ -35,6 +35,8 @@
 .world-canvas { position: absolute; inset: 0 0 55px; cursor: grab; touch-action: none; }
 .world-canvas:active { cursor: grabbing; }
 .world-canvas canvas { touch-action: none; }
+/* Touch screens, inline: vertical swipes scroll the page (OrbitControls sets an inline touch-action: none on its element). */
+@media (pointer: coarse) { .world-stage:not(.world-expanded) .world-canvas, .world-stage:not(.world-expanded) .world-canvas * { touch-action: pan-y !important; } }
 .world-loader { position: absolute; inset: 30% 15%; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 16px; color: var(--color-muted); font-size: .875rem; pointer-events: none; }
 .world-bottom { position: absolute; inset: auto 30px 0; display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 16px 0; border-top: 1px solid color-mix(in oklab,var(--color-white) 12%,transparent); }
 .world-hint { display: flex; align-items: center; gap: 12px; color: color-mix(in oklab,var(--color-white) 65%,transparent); }
